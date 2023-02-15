@@ -2,8 +2,8 @@
 
 FROM eclipse-temurin:17-jdk-jammy as base
 WORKDIR /app
-COPY chmod +x .mvn/ .mvn
-COPY chmod +x mvnw pom.xml ./
+COPY --chmod=0777 .mvn/ .mvn
+COPY --chmod=0777 +x mvnw pom.xml ./
 RUN ./mvnw dependency:resolve
 COPY src ./src
 
